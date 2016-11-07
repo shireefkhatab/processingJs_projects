@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <script src="processing.js"></script>
+	<head>
+	 
+    <body>
+        <canvas width="400" height="400" data-processing-sources="fallingBall.js"></canvas>
+    </body>
+</html>
+
+
+<!--
+Running Khan Academy programs on your computer:
+
+I've noticed a lot of people asking how they can run the programs they've seen or created on Khan Academy's computer science area, so I've written this post to explain how to (sort of) achieve it. Note that not all Khan Academy programs will run on your computer.
+
+What you need
+
+To run a KA program you need a few things, all of which are easy to get. You can download the files you need from the bottom this page. These files are text files - you will need to change file extensions from .txt to .js or .html by renaming the files (click on the filename and press F2). You may get a warning about changing the filename - click OK.
+
+You will want to create a folder somewhere on your computer to keep all the files of this project in. One thing you don't need to download is Javascript. Your program is written in Javascript and it is interpreted by your broswer. Which brings us to...
+
+1. A browser
+
+This program is a program that opens webpages like the one you now to view this page. For security reasons, Chrome doesn't work when opening trying to run this type of file on your computer so for this I recommend using Firefox.
+
+2. processing.js
+
+This is a javascript file which deals with the graphics, letting you draw lines, circles etc.. You can download it below (remember to change the filename to processing.js) or can get the latest version from http://processingjs.org/download/.
+
+3. An HTML document
+
+You need to display your program somewhere and that somewhere is a webpage. Webpages are written in a language called Hyper Text Markup Langauge (HTML) which tells your browser what to display. You can open HTML files with your broswer even if they are on your computer and not on the internet. I've written a very basic HTML file (called main.txt) which you can download at the bottom of this page (change the filename to main.html).
+
+If you open the file with Notepad (don't use Word) you should see the line:
+
+4
+<script src="processing.js"></script>
+This tells the broswer to use processing.js.
+
+7
+<canvas width="400" height="400" data-processing-sources="code.js"></canvas>
+This line tells your broswer to create a 400 x 400 pixel area to display the code which is in a file called code.pde. You can change these if you want a bigger space or use a different filename for the code.
+
+4. Your code
+
+Finally you need your code. You can download an example below (rename to code.js) or you can copy your own code into a file called code.js. When using your own code, you will need to make a few changes. You won't be able to use any images as these are stored on the Khan Academy site.
+
+To the top of your code add:
+
+1
+void setup() {
+2
+  size(400, 400);
+3
+}
+Move any part of your code that draws something (e.g. line(x1, y1, x2, y2)) into the draw() function. Change how you define you draw() function from
+
+1
+var draw = function() {
+to:
+
+1
+void draw() {
+If you are dealing with mouse events then change mouseIsPressed to mousePressed. Other variables may be changed - I've not checked everything.
+
+Viewing the program
+
+Finally open main.html with Firefox (right click on the file and choose Open With or open Firefox and drag the file into the Firefox window), and you should see the code running. If you not then you can try to debug the problem with Firebug or ask below.
+Attachment	Size
+main.txt	210 bytes
+processing.txt	226.42 KB
+code.txt	6.62 KB
+
+
+chrome problem is solved :
+I was meaning that Chrome 
+(and any other decent browser) is preventing you from making requests via any JavaScript to access local files.
+ You wouldn't like a site looking through your pictures while you visit it, now would you?
+ Upload your stuff to a web server or start a local web server and try it from there. That should fix your problem.
+
+
+-->

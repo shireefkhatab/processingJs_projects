@@ -1,0 +1,129 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <script src="processing.js"></script>
+	<head>
+	 
+    <body>
+        <canvas width="400" height="400" id="canvas"></canvas>
+		<script type = "text/processing" data-processing-target= "canvas">   
+void setup(){
+	size(800,600);
+	};
+    var ball_1_X = [200];// canvas.width/2 
+    var ball_2_X = [600];// canvas.width/2 
+    var x2 = mouseX;
+    var ball_1_Y = 0;   
+    var ball_2_Y = 200;   
+    var y2 = mouseY;
+    var level = 1; 
+    var score =0;
+    var speed = 3;
+    var marks = 1;
+    var paddleWidth = 80;
+    var ballWidth = 40;
+    var ballHeight = 40;
+	var paddleHeight = 20;
+	var paddleY = 500;
+	var play = true;
+	var message = ["Game over","level","Game","completed"];
+	
+void draw(){
+	background(204, 247, 255);
+	//playSound(getSound("rpg/door-open"));
+	
+	// display information/
+	fill(5, 5, 5); textSize(20); 
+	text ("/ level : "+ level,5,25); 
+	text("/ score : "+  score ,5,50);
+		//falling ball
+		noStroke();
+		fill(240, 14, 104);
+		ellipse(ball_1_X, ball_1_Y, ballWidth, ballHeight);
+		ellipse(ball_2_X, ball_2_Y, ballWidth, ballHeight);
+		
+		// draw paddle/
+		fill(240, 14, 104);
+		rect(mouseX-paddleWidth/2,paddleY,paddleWidth,paddleHeight*8);
+		fill(10, 49, 245);
+		ellipse(mouseX,paddleY,paddleWidth,paddleHeight);
+		
+	if(play){
+	   // falling ball speed
+		ball_1_Y += speed;
+				// mouse press changes
+		if(ball_1_Y > paddleY && ball_1_X> mouseX-ballWidth && ball_1_X < mouseX+ballWidth){
+		   // playSound(getSound("rpg/battle-swing"));
+			ball_1_Y = 0;
+			ball_1_X = random(20,780);
+			score += marks;
+		}
+		
+		ball_2_Y += speed;
+				// mouse press changes
+		if(ball_2_Y > paddleY && ball_2_X> mouseX-ballWidth && ball_2_X < mouseX+ballWidth){
+		   // playSound(getSound("rpg/battle-swing"));
+			ball_2_Y = 0;
+			ball_2_X = random(20,780);
+			score += marks;
+		}
+			
+			 // level 2/         
+		if(score > 9){ 
+			level = 2;
+			marks = 2;
+			speed = 4; 
+			//fill(240, 12, 12);
+			//textSize(50);
+			//text(message[1]+ level +message[3],100,200);
+			//playSound(getSound("retro/coin"));
+		}
+		//level 3/
+		if (score > 19){           
+			level = 3;
+			marks = 4;
+			speed = 5; 
+			//ball_1_Y += 50; 
+			//ball_2_Y += 50; 
+		  //  playSound(getSound("retro/coin"));
+		}
+		//level 4/
+		if (score > 29){
+			level = 4;
+			marks = 6; 
+			paddleWidth = 40; 
+		}
+		 //level 5/
+		if (score > 69){
+			level = 5;
+			marks = 10;
+			//ballWidth = ballWidth/2;
+			//ballHeight = ballHeight/2;
+		}
+		// end of game/
+		if (score > 99){       
+			play = false;
+			fill(240, 14, 14);
+			textSize(50);
+			text(message[3],100,200); 
+		  //  playSound(getSound("retro/boom1"));
+		}              
+	
+		// fail/
+		if (ball_1_Y > 620 || ball_2_Y > 620 ){ 
+			play = false;
+			fill(20, 18, 18);
+			textSize(50);
+			text(message[0],100,200);      
+			// playSound(getSound("rpg/battle-swing"));
+        }
+	}
+  };
+   
+                
+</script>
+
+    </body>
+</html>
+

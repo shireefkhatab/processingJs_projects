@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <script src="processing.js"></script>
+	<head>
+	 
+    <body>
+        <canvas width="400" height="400" id="canvas"></canvas>
+		<script type = "text/processing" data-processing-target= "canvas">  
+	void setup() {
+
+  size(800, 600);
+
+}
+
+	// position of the ball
+var y = 0;
+// how far the ball moves every time
+var xspeed = 5; var yspeed=5;
+var x= 200;
+var z = 0;
+var r = 375; var l = 25;
+var zspeed=5; var lspeed=5; var rspeed=5;
+
+void draw() {  
+fill(random(0,255),random(0,255),random(0,255),random(0,1));
+  rect(0,0,400,400);
+
+noFill();
+random(0,400);
+
+
+    fill(x, y, z);
+    ellipse(x, y, 30, 30);
+    fill(z, x, y);
+    ellipse (y,x,50,50);
+    
+    
+    fill(x, y, y);
+    ellipse(105,218,30,50);
+     fill(z, x, x);
+    ellipse(24,114,30,50);
+    fill(z, x, y);
+    ellipse(211,108,30,50);
+     fill(z, y, x);
+    ellipse(374,94,30,50);
+    fill(z, x, y);
+    ellipse(300,183,30,50);
+    
+     fill(z, r, l);
+    ellipse(25,300,30,50);
+      fill(l, r, y);
+    ellipse(191,288,30,50);
+     fill(x, z, z);
+    ellipse(373,284,30,50);
+     fill(z, y, x);
+    ellipse(280,361,30,50);
+     fill(z, x, y);
+    ellipse(101,373,30,50);
+     fill(z, x, x);
+    ellipse(119,29,30,50);
+     fill(z, z, y);
+    ellipse(300,24,30,50);
+     
+    fill(x, y, z);
+    ellipse(z,z,20,20);
+    z = z+zspeed;
+    if(z >375){zspeed=-5;}
+    if(z<25){zspeed = 5;}
+    
+    fill(r, x, y);
+    ellipse(r,l,20,20);
+    r = r-rspeed; l = l+lspeed;
+    if(l>375) {lspeed = -5; rspeed = 3;}
+    if (l<25) {lspeed= 5; rspeed = 5;}
+    // move t
+    // move t
+    // move the ball
+  
+    y = y + yspeed;
+    x = x+ xspeed;
+    if (x>375){xspeed=-5; yspeed=5; }
+    if (y>375){ xspeed=-5;yspeed=-5; }
+    if (x< 25){xspeed=5 ; yspeed =-5;}
+    if(y<25){xspeed=5; yspeed =5;}
+
+
+};
+
+</script>
+</body>
+</html>
